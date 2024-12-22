@@ -1,8 +1,8 @@
+import { container } from "./core/ServiceProvider";
 import modules from "./modules";
 import { info } from "./utils";
 import { eventManager } from "./core/Event";
 import { timeManager } from "./core/Time";
-import { playerManager } from "./core/Player";
 import { gameManager } from "./core/Game";
 import { cacheManager } from "./core/Cache";
 
@@ -11,11 +11,11 @@ for (const module of modules) {
     info(`Registered LUA module: ${module.name}`);
 }
 
+container.resolve("PlayerManager").register();
 eventManager.register();
 cacheManager.register();
 gameManager.register();
 timeManager.register();
-playerManager.register();
 
 /**
  * Plugins DEMO

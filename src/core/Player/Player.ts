@@ -1,5 +1,7 @@
 import { Cache } from "../Cache";
-import { playerManager } from "./PlayerManager";
+import { container } from "../ServiceProvider";
+
+const PlayerManager = container.resolve("PlayerManager");
 
 export class Player {
     private _name: string;
@@ -90,6 +92,6 @@ export class Player {
     }
 
     public static getById(id: PlayerID): Player | null {
-        return playerManager.getById(id);
+        return PlayerManager.getById(id);
     }
 }

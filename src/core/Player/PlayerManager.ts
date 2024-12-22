@@ -12,7 +12,7 @@ import {
     NameEvent,
 } from "../Event/events/player";
 
-class PlayerManager implements IManager {
+export class PlayerManager implements IManager {
     private players: Player[] = [];
     private playersById: Map<PlayerID, Player> = new Map();
 
@@ -85,5 +85,3 @@ class PlayerManager implements IManager {
         });
     }
 }
-
-export const playerManager = new PlayerManager();
